@@ -1,0 +1,39 @@
+{
+  "total_questions": 45,
+  "counts_by_unit": {
+    "Unit 1": 15,
+    "Unit 2": 15,
+    "Unit 3": 15
+  },
+  "counts_by_question_type": {
+    "Unit 1": {
+      "Theory-based": 5,
+      "Numerical": 5,
+      "Code-based": 4,
+      "Scenario": 1
+    },
+    "Unit 2": {
+      "Code-based": 8,
+      "Theory-based": 4,
+      "Numerical": 1,
+      "Scenario": 2
+    },
+    "Unit 3": {
+      "Theory-based": 8,
+      "Scenario": 3,
+      "Numerical": 4
+    }
+  },
+  "validation_checks": [
+    "45 questions total",
+    "15 questions per unit",
+    "four options per question",
+    "answer key maps to an existing option",
+    "each question includes an explanation"
+  ],
+  "source_basis": {
+    "ISA1 PDF": "OS role/services, process states and PCB, FCFS/SJF scheduling, shell condition, fork/wait, semaphore operations, test_and_set, compare_and_swap, thread sharing, race conditions, and synchronous/asynchronous message passing.",
+    "Level 1 Problem-2 PDF": "bounded-buffer semaphore initialization, ordinary pipe ends and direction, Banker's Need/Available/safety algorithm, dining-philosophers deadlock, and parent-child pipe communication."
+  },
+  "scope_note": "Unit 3 is organized as deadlock/resource-allocation questions drawn from the two supplied PDFs; the supplied PDFs do not provide a memory-management unit outline."
+}

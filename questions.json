@@ -1,0 +1,767 @@
+[
+  {
+    "id": "source_mcq_001",
+    "unit": "Unit 1",
+    "number": 1,
+    "topic": "Process states",
+    "difficulty": "Moderate",
+    "question_type": "Theory-based",
+    "question": "A disk read requested by process P completes while Q is using the CPU. What is P's state immediately after the I/O completion, before it is scheduled?",
+    "options": {
+      "A": "Running",
+      "B": "Ready",
+      "C": "Waiting",
+      "D": "Terminated"
+    },
+    "answer": "B",
+    "explanation": "I/O completion moves P from Waiting to Ready; it does not itself allocate the CPU."
+  },
+  {
+    "id": "source_mcq_002",
+    "unit": "Unit 1",
+    "number": 2,
+    "topic": "Non-preemptive SJF",
+    "difficulty": "Advanced",
+    "question_type": "Numerical",
+    "question": "P1 arrives at 0 with burst 7 ms; P2 arrives at 2 with burst 4 ms; P3 arrives at 4 with burst 1 ms; P4 arrives at 5 with burst 4 ms. Under non-preemptive SJF, what is the execution order?",
+    "options": {
+      "A": "P1 → P2 → P3 → P4",
+      "B": "P1 → P3 → P2 → P4",
+      "C": "P3 → P1 → P2 → P4",
+      "D": "P1 → P4 → P2 → P3"
+    },
+    "answer": "B",
+    "explanation": "P1 starts at time 0 and runs to 7. Then P3 is shortest; P2 and P4 tie at 4 ms, so earlier-arriving P2 runs first."
+  },
+  {
+    "id": "source_mcq_003",
+    "unit": "Unit 1",
+    "number": 3,
+    "topic": "Non-preemptive SJF waiting time",
+    "difficulty": "Advanced",
+    "question_type": "Numerical",
+    "question": "Using the processes in the previous question, what is the average waiting time?",
+    "options": {
+      "A": "3 ms",
+      "B": "4 ms",
+      "C": "5 ms",
+      "D": "6 ms"
+    },
+    "answer": "B",
+    "explanation": "Waiting times are P1=0, P3=7−4=3, P2=8−2=6, P4=12−5=7. Average=(0+3+6+7)/4=4 ms."
+  },
+  {
+    "id": "source_mcq_004",
+    "unit": "Unit 1",
+    "number": 4,
+    "topic": "FCFS scheduling",
+    "difficulty": "Moderate",
+    "question_type": "Numerical",
+    "question": "P1, P2, and P3 all arrive at time 0 with CPU bursts 5, 3, and 2 ms respectively. Under FCFS, which process runs second?",
+    "options": {
+      "A": "P1",
+      "B": "P2",
+      "C": "P3",
+      "D": "All run simultaneously"
+    },
+    "answer": "B",
+    "explanation": "FCFS follows arrival order; with simultaneous arrivals, the stated order P1, P2, P3 is used."
+  },
+  {
+    "id": "source_mcq_005",
+    "unit": "Unit 1",
+    "number": 5,
+    "topic": "PCB role",
+    "difficulty": "Moderate",
+    "question_type": "Theory-based",
+    "question": "A timer interrupt preempts process P and the CPU switches to Q. Which information is most important to preserve so P can later resume correctly?",
+    "options": {
+      "A": "Only P's process name",
+      "B": "P's program counter and CPU register context, along with other PCB state",
+      "C": "Only the source code",
+      "D": "Only the disk's free-space map"
+    },
+    "answer": "B",
+    "explanation": "The PCB stores process state and execution context, including the program counter and register information."
+  },
+  {
+    "id": "source_mcq_006",
+    "unit": "Unit 1",
+    "number": 6,
+    "topic": "Process state transition",
+    "difficulty": "Moderate",
+    "question_type": "Theory-based",
+    "question": "A process is Running, requests an I/O operation, waits for it, becomes eligible for CPU allocation, runs again, and finishes. Which sequence is correct?",
+    "options": {
+      "A": "Running → Ready → Waiting → Terminated",
+      "B": "Running → Waiting → Ready → Running → Terminated",
+      "C": "Ready → Running → Terminated → Waiting",
+      "D": "Running → Terminated → Ready → Waiting"
+    },
+    "answer": "B",
+    "explanation": "An I/O request moves a running process to Waiting; completion moves it to Ready, then it can run and terminate."
+  },
+  {
+    "id": "source_mcq_007",
+    "unit": "Unit 1",
+    "number": 7,
+    "topic": "Operating-system role",
+    "difficulty": "Easy",
+    "question_type": "Theory-based",
+    "question": "A program needs CPU time, memory, file access, and device I/O. Which component coordinates these resources and provides standard services?",
+    "options": {
+      "A": "Operating system",
+      "B": "Text editor",
+      "C": "Compiler only",
+      "D": "BIOS only"
+    },
+    "answer": "A",
+    "explanation": "The operating system manages resources and exposes services to application programs."
+  },
+  {
+    "id": "source_mcq_008",
+    "unit": "Unit 1",
+    "number": 8,
+    "topic": "OS service vs system call",
+    "difficulty": "Moderate",
+    "question_type": "Theory-based",
+    "question": "Which statement best distinguishes an operating-system service from a system call?",
+    "options": {
+      "A": "They are identical terms in all contexts",
+      "B": "A service is a facility provided by the OS; a system call is a programmatic interface for requesting OS functionality",
+      "C": "A system call is a hardware device",
+      "D": "An OS service is only available during boot"
+    },
+    "answer": "B",
+    "explanation": "Services describe what the OS provides; system calls are interfaces through which programs request such services."
+  },
+  {
+    "id": "source_mcq_009",
+    "unit": "Unit 1",
+    "number": 9,
+    "topic": "Shell condition",
+    "difficulty": "Moderate",
+    "question_type": "Code-based",
+    "question": "What does this shell fragment print? `count=3; if [ \"$count\" -gt 2 ]; then echo High; else echo Low; fi`",
+    "options": {
+      "A": "Low",
+      "B": "High",
+      "C": "No output",
+      "D": "3"
+    },
+    "answer": "B",
+    "explanation": "The test checks whether 3 is greater than 2, which is true, so `High` is printed."
+  },
+  {
+    "id": "source_mcq_010",
+    "unit": "Unit 1",
+    "number": 10,
+    "topic": "fork return value",
+    "difficulty": "Advanced",
+    "question_type": "Code-based",
+    "question": "After a successful `fork()` in a Unix-like system, which return-value interpretation is correct?",
+    "options": {
+      "A": "Parent gets 0; child gets child's PID",
+      "B": "Both parent and child get 0",
+      "C": "Child gets 0; parent gets child's PID",
+      "D": "Both get the same positive PID"
+    },
+    "answer": "C",
+    "explanation": "The child receives 0 from fork(); the parent receives the child's process ID."
+  },
+  {
+    "id": "source_mcq_011",
+    "unit": "Unit 1",
+    "number": 11,
+    "topic": "wait and zombie",
+    "difficulty": "Advanced",
+    "question_type": "Code-based",
+    "question": "A child process exits, but its parent has not yet collected its termination status using `wait()` or a related call. What may the child temporarily become?",
+    "options": {
+      "A": "A daemon",
+      "B": "A zombie",
+      "C": "A ready thread",
+      "D": "A page fault"
+    },
+    "answer": "B",
+    "explanation": "An exited child can remain as a zombie until the parent reaps its status."
+  },
+  {
+    "id": "source_mcq_012",
+    "unit": "Unit 1",
+    "number": 12,
+    "topic": "FCFS convoy effect",
+    "difficulty": "Advanced",
+    "question_type": "Scenario",
+    "question": "A long CPU-bound process arrives before several short I/O-bound processes in an FCFS ready queue. The short processes experience substantial delay. Which scheduling issue does this illustrate?",
+    "options": {
+      "A": "Belady's anomaly",
+      "B": "Convoy effect",
+      "C": "Copy-on-write",
+      "D": "Circular wait"
+    },
+    "answer": "B",
+    "explanation": "FCFS can make short processes wait behind a long process, producing the convoy effect."
+  },
+  {
+    "id": "source_mcq_013",
+    "unit": "Unit 1",
+    "number": 13,
+    "topic": "Round robin quantum",
+    "difficulty": "Advanced",
+    "question_type": "Numerical",
+    "question": "Three processes P1, P2, and P3 arrive at time 0 with bursts 5, 3, and 1 ms. Round Robin uses a 2 ms quantum, zero context-switch cost, and initial queue P1,P2,P3. At what time does P3 finish?",
+    "options": {
+      "A": "3 ms",
+      "B": "5 ms",
+      "C": "6 ms",
+      "D": "8 ms"
+    },
+    "answer": "B",
+    "explanation": "P1 runs 0–2, P2 runs 2–4, and P3 runs 4–5; P3 finishes at 5 ms."
+  },
+  {
+    "id": "source_mcq_014",
+    "unit": "Unit 1",
+    "number": 14,
+    "topic": "Turnaround time",
+    "difficulty": "Advanced",
+    "question_type": "Numerical",
+    "question": "A process arrives at 3 ms and completes at 14 ms. What is its turnaround time?",
+    "options": {
+      "A": "11 ms",
+      "B": "14 ms",
+      "C": "17 ms",
+      "D": "3 ms"
+    },
+    "answer": "A",
+    "explanation": "Turnaround time equals completion time minus arrival time: 14−3=11 ms."
+  },
+  {
+    "id": "source_mcq_015",
+    "unit": "Unit 1",
+    "number": 15,
+    "topic": "System-call purpose",
+    "difficulty": "Moderate",
+    "question_type": "Code-based",
+    "question": "A user program needs the kernel to perform an operation it cannot perform directly in user mode. Which mechanism is intended for this request?",
+    "options": {
+      "A": "A system call",
+      "B": "A cache line",
+      "C": "A compiler warning",
+      "D": "A shell comment"
+    },
+    "answer": "A",
+    "explanation": "System calls provide the interface for requesting operating-system services."
+  },
+  {
+    "id": "source_mcq_016",
+    "unit": "Unit 2",
+    "number": 1,
+    "topic": "Pipe descriptor directions",
+    "difficulty": "Moderate",
+    "question_type": "Code-based",
+    "question": "A parent sends bytes to a child through an ordinary pipe created by `pipe(fd)`. Which arrangement is correct?",
+    "options": {
+      "A": "Parent reads fd[0], child writes fd[1]",
+      "B": "Parent writes fd[1], child reads fd[0]",
+      "C": "Both processes only write fd[0]",
+      "D": "fd[0] is the write end and fd[1] is the read end"
+    },
+    "answer": "B",
+    "explanation": "For a conventional Unix pipe, fd[0] is the read end and fd[1] is the write end."
+  },
+  {
+    "id": "source_mcq_017",
+    "unit": "Unit 2",
+    "number": 2,
+    "topic": "Closing unused pipe ends",
+    "difficulty": "Advanced",
+    "question_type": "Code-based",
+    "question": "After `fork()`, a parent writes to a pipe and a child reads from it. Which unused ends should normally be closed?",
+    "options": {
+      "A": "Parent closes read end; child closes write end",
+      "B": "Parent closes write end; child closes read end",
+      "C": "Both close both ends before communication",
+      "D": "Neither process should close any end"
+    },
+    "answer": "A",
+    "explanation": "The parent only writes and the child only reads, so each closes the end it does not use."
+  },
+  {
+    "id": "source_mcq_018",
+    "unit": "Unit 2",
+    "number": 3,
+    "topic": "Pipe property",
+    "difficulty": "Moderate",
+    "question_type": "Theory-based",
+    "question": "Why must an ordinary pipe's read and write ends be arranged carefully for parent-to-child communication?",
+    "options": {
+      "A": "An ordinary pipe is a one-way byte stream",
+      "B": "A pipe can only transmit integers",
+      "C": "A pipe always creates a new process",
+      "D": "A pipe requires shared memory"
+    },
+    "answer": "A",
+    "explanation": "An ordinary pipe is unidirectional; the direction determines which end is read and which is written."
+  },
+  {
+    "id": "source_mcq_019",
+    "unit": "Unit 2",
+    "number": 4,
+    "topic": "Bounded buffer initialization",
+    "difficulty": "Moderate",
+    "question_type": "Numerical",
+    "question": "A bounded buffer has N slots and uses the standard producer–consumer semaphore design. What are the initial values of mutex, empty, and full?",
+    "options": {
+      "A": "mutex=0, empty=N, full=1",
+      "B": "mutex=1, empty=N, full=0",
+      "C": "mutex=N, empty=0, full=1",
+      "D": "mutex=1, empty=0, full=N"
+    },
+    "answer": "B",
+    "explanation": "Mutex starts unlocked at 1; all N slots are empty; no slots are full."
+  },
+  {
+    "id": "source_mcq_020",
+    "unit": "Unit 2",
+    "number": 5,
+    "topic": "Producer semaphore order",
+    "difficulty": "Advanced",
+    "question_type": "Code-based",
+    "question": "A producer executes `wait(empty); wait(mutex); insert(); signal(mutex); signal(full);`. If `empty=0` at the first operation, what follows?",
+    "options": {
+      "A": "It inserts first and blocks afterward",
+      "B": "It blocks at `wait(empty)` and cannot yet execute `wait(mutex)`",
+      "C": "It increments `full` immediately",
+      "D": "It enters the critical section without waiting"
+    },
+    "answer": "B",
+    "explanation": "With no empty slots, the producer blocks at wait(empty), before acquiring mutex or inserting."
+  },
+  {
+    "id": "source_mcq_021",
+    "unit": "Unit 2",
+    "number": 6,
+    "topic": "Semaphore signal",
+    "difficulty": "Advanced",
+    "question_type": "Theory-based",
+    "question": "In a semaphore implementation with a waiting queue and no busy-waiting, a process is blocked on S. Another process calls `signal(S)`. What can occur?",
+    "options": {
+      "A": "A waiting process is moved from the semaphore queue to the ready queue",
+      "B": "All processes are terminated",
+      "C": "The semaphore is necessarily destroyed",
+      "D": "The waiting queue is ignored"
+    },
+    "answer": "A",
+    "explanation": "A signal can wake one blocked process by moving it to the ready queue."
+  },
+  {
+    "id": "source_mcq_022",
+    "unit": "Unit 2",
+    "number": 7,
+    "topic": "Shared memory IPC",
+    "difficulty": "Moderate",
+    "question_type": "Theory-based",
+    "question": "Two processes exchange large data blocks repeatedly. Which IPC method can avoid repeatedly copying each block through a kernel-managed message channel after setup?",
+    "options": {
+      "A": "Shared memory",
+      "B": "A shell variable",
+      "C": "A process ID",
+      "D": "A CPU scheduling priority"
+    },
+    "answer": "A",
+    "explanation": "Shared memory lets processes access a common mapped region; synchronization is still needed."
+  },
+  {
+    "id": "source_mcq_023",
+    "unit": "Unit 2",
+    "number": 8,
+    "topic": "Blocking message send",
+    "difficulty": "Moderate",
+    "question_type": "Scenario",
+    "question": "System A lets a sender continue immediately after sending. System B blocks the sender until the receiver obtains the message. Which classification is correct?",
+    "options": {
+      "A": "A blocking; B non-blocking",
+      "B": "A non-blocking/asynchronous send; B blocking/synchronous send",
+      "C": "Both must be non-blocking",
+      "D": "Both are process states"
+    },
+    "answer": "B",
+    "explanation": "System A does not wait for receipt; System B's sender progress depends on the receiver."
+  },
+  {
+    "id": "source_mcq_024",
+    "unit": "Unit 2",
+    "number": 9,
+    "topic": "Thread shared state",
+    "difficulty": "Moderate",
+    "question_type": "Theory-based",
+    "question": "Which set is normally shared by threads in the same process?",
+    "options": {
+      "A": "Each thread's register set and stack",
+      "B": "Code, data, and open file descriptors",
+      "C": "Each thread's program counter only",
+      "D": "Each thread's stack only"
+    },
+    "answer": "B",
+    "explanation": "Threads share process resources such as code, data, and open files; each has its own registers and stack."
+  },
+  {
+    "id": "source_mcq_025",
+    "unit": "Unit 2",
+    "number": 10,
+    "topic": "pthread_create",
+    "difficulty": "Moderate",
+    "question_type": "Code-based",
+    "question": "In `pthread_create(&tid, &attr, runner, &x)`, what is `runner` expected to identify?",
+    "options": {
+      "A": "The thread's ID variable",
+      "B": "The start routine executed by the new thread",
+      "C": "The attribute structure",
+      "D": "The return value from `pthread_join`"
+    },
+    "answer": "B",
+    "explanation": "The third argument is the thread start routine."
+  },
+  {
+    "id": "source_mcq_026",
+    "unit": "Unit 2",
+    "number": 11,
+    "topic": "pthread_join",
+    "difficulty": "Moderate",
+    "question_type": "Code-based",
+    "question": "A main thread calls `pthread_join(tid, NULL)` on a joinable thread. What is the primary effect?",
+    "options": {
+      "A": "It waits for the specified thread to terminate",
+      "B": "It creates another process",
+      "C": "It detaches the thread automatically",
+      "D": "It resets all shared variables"
+    },
+    "answer": "A",
+    "explanation": "pthread_join waits for the target thread to finish and can collect its return value."
+  },
+  {
+    "id": "source_mcq_027",
+    "unit": "Unit 2",
+    "number": 12,
+    "topic": "Race condition",
+    "difficulty": "Advanced",
+    "question_type": "Scenario",
+    "question": "A multithreaded program increments a shared counter without synchronization. Repeated runs produce different totals. What is the most direct explanation?",
+    "options": {
+      "A": "A race condition due to unsynchronized concurrent updates",
+      "B": "The OS has deleted the counter",
+      "C": "Threads never share data",
+      "D": "The compiler always serializes all threads"
+    },
+    "answer": "A",
+    "explanation": "Interleaved read-modify-write operations can lose updates, making the result scheduling-dependent."
+  },
+  {
+    "id": "source_mcq_028",
+    "unit": "Unit 2",
+    "number": 13,
+    "topic": "test_and_set",
+    "difficulty": "Advanced",
+    "question_type": "Code-based",
+    "question": "Initially `lock = false`. Thread T1 executes atomic `test_and_set(&lock)` first, then T2 executes it. Each operation returns the old value and sets lock to true. What are the return values?",
+    "options": {
+      "A": "T1=true, T2=true",
+      "B": "T1=false, T2=false",
+      "C": "T1=false, T2=true",
+      "D": "T1=true, T2=false"
+    },
+    "answer": "C",
+    "explanation": "T1 observes the old false value and sets lock true; T2 then observes true."
+  },
+  {
+    "id": "source_mcq_029",
+    "unit": "Unit 2",
+    "number": 14,
+    "topic": "Compare-and-swap",
+    "difficulty": "Advanced",
+    "question_type": "Code-based",
+    "question": "An atomic instruction compares a memory location with an expected value, replaces it only if they match, and returns the old value. Which instruction is this?",
+    "options": {
+      "A": "compare-and-swap",
+      "B": "signal",
+      "C": "unlock",
+      "D": "wait"
+    },
+    "answer": "A",
+    "explanation": "Compare-and-swap performs a conditional atomic update based on an expected value."
+  },
+  {
+    "id": "source_mcq_030",
+    "unit": "Unit 2",
+    "number": 15,
+    "topic": "Peterson busy wait",
+    "difficulty": "Advanced",
+    "question_type": "Code-based",
+    "question": "Process Pi evaluates `while (flag[j] && turn == j);`. If `flag[j]=true` and `turn=j`, what does Pi do?",
+    "options": {
+      "A": "Leaves the loop immediately",
+      "B": "Continues waiting in the loop",
+      "C": "Sets flag[j] to false automatically",
+      "D": "Terminates"
+    },
+    "answer": "B",
+    "explanation": "Both conditions are true, so the loop condition remains true and Pi spins."
+  },
+  {
+    "topic": "Address translation",
+    "difficulty": "Advanced",
+    "question_type": "Numerical / code-tracing",
+    "question": "A process generates logical address 346. The page size is 100 bytes, and page 3 is mapped to frame 7. Using zero-based page numbering, what physical address is generated?",
+    "options": {
+      "A": "646",
+      "B": "700",
+      "C": "746",
+      "D": "10346"
+    },
+    "answer": "C",
+    "explanation": "Page number = floor(346/100) = 3; offset = 46. Frame 7 starts at 700, so physical address = 700 + 46 = 746.",
+    "id": "memory_unit3_001",
+    "unit": "Unit 3",
+    "number": 1
+  },
+  {
+    "topic": "Paging and page tables",
+    "difficulty": "Advanced",
+    "question_type": "Numerical",
+    "question": "A system has 16-bit logical addresses and a page size of 1 KB. How many bits are required for the page number and the page offset, respectively?",
+    "options": {
+      "A": "6 bits and 10 bits",
+      "B": "10 bits and 6 bits",
+      "C": "8 bits and 8 bits",
+      "D": "12 bits and 4 bits"
+    },
+    "answer": "A",
+    "explanation": "A 1 KB page contains 2^10 bytes, so the offset uses 10 bits. The remaining 16 − 10 = 6 bits identify the page.",
+    "id": "memory_unit3_002",
+    "unit": "Unit 3",
+    "number": 2
+  },
+  {
+    "topic": "TLB and effective access time",
+    "difficulty": "Advanced",
+    "question_type": "Numerical",
+    "question": "A system has a TLB lookup time of 10 ns, a memory access time of 100 ns, and a TLB hit ratio of 80%. On a hit, one memory access is needed; on a miss, two memory accesses are needed. Assuming serial TLB lookup, what is the effective access time?",
+    "options": {
+      "A": "110 ns",
+      "B": "120 ns",
+      "C": "130 ns",
+      "D": "210 ns"
+    },
+    "answer": "C",
+    "explanation": "Hit time = 10 + 100 = 110 ns. Miss time = 10 + 2(100) = 210 ns. EAT = 0.8(110) + 0.2(210) = 130 ns. Correct option should therefore be C.",
+    "id": "memory_unit3_003",
+    "unit": "Unit 3",
+    "number": 3
+  },
+  {
+    "topic": "Demand paging",
+    "difficulty": "Advanced",
+    "question_type": "Scenario analysis",
+    "question": "A process references a valid virtual page that is not currently in RAM. The page is present in the backing store. What should happen first in normal demand-paging handling?",
+    "options": {
+      "A": "The CPU permanently terminates the process",
+      "B": "A page fault transfers control to the OS, which arranges to bring the page into memory",
+      "C": "The TLB creates the page contents",
+      "D": "The page is silently treated as a segmentation fault"
+    },
+    "answer": "B",
+    "explanation": "A valid but nonresident page causes a page fault. The OS validates the reference, obtains a frame, loads the page, updates mappings, and restarts the faulting instruction.",
+    "id": "memory_unit3_004",
+    "unit": "Unit 3",
+    "number": 4
+  },
+  {
+    "topic": "Page-fault handling",
+    "difficulty": "Advanced",
+    "question_type": "Sequence reasoning",
+    "question": "A page fault occurs for a valid page, and a free frame is available. Which sequence is the most appropriate?",
+    "options": {
+      "A": "Load page, validate address, terminate process, update page table",
+      "B": "Validate reference, read page into free frame, update page table/TLB as needed, restart instruction",
+      "C": "Restart instruction, then read page from disk",
+      "D": "Flush all files, replace the process, restart the computer"
+    },
+    "answer": "B",
+    "explanation": "The OS first validates the faulting address, then loads the page into a free frame, updates translation information, and restarts the interrupted instruction.",
+    "id": "memory_unit3_005",
+    "unit": "Unit 3",
+    "number": 5
+  },
+  {
+    "topic": "FIFO page replacement",
+    "difficulty": "Advanced",
+    "question_type": "Numerical",
+    "question": "Three frames are initially empty. A process references pages 1, 2, 3, 1, 4 using FIFO replacement. How many page faults occur?",
+    "options": {
+      "A": "3",
+      "B": "4",
+      "C": "5",
+      "D": "2"
+    },
+    "answer": "B",
+    "explanation": "Faults occur for 1, 2, 3, and 4. The second reference to 1 is a hit, so there are 4 faults.",
+    "id": "memory_unit3_006",
+    "unit": "Unit 3",
+    "number": 6
+  },
+  {
+    "topic": "LRU page replacement",
+    "difficulty": "Advanced",
+    "question_type": "Numerical",
+    "question": "Three frames are initially empty. Under LRU, the reference string is 1, 2, 3, 1, 4. How many page faults occur?",
+    "options": {
+      "A": "3",
+      "B": "4",
+      "C": "5",
+      "D": "2"
+    },
+    "answer": "B",
+    "explanation": "Pages 1, 2, 3 cause three faults; 1 is then a hit, making 2 most recently used. Referencing 4 replaces least-recently-used page 2, causing the fourth fault.",
+    "id": "memory_unit3_007",
+    "unit": "Unit 3",
+    "number": 7
+  },
+  {
+    "topic": "Clock page replacement",
+    "difficulty": "Advanced",
+    "question_type": "Algorithm tracing",
+    "question": "In the Clock algorithm, the hand points to a page whose reference bit is 1. What does the algorithm normally do before selecting a victim?",
+    "options": {
+      "A": "Immediately evict that page without changing its bit",
+      "B": "Clear its reference bit and advance the hand",
+      "C": "Set every frame's reference bit to 0 and stop",
+      "D": "Increase the page size"
+    },
+    "answer": "B",
+    "explanation": "A reference bit of 1 gives the page a second chance: clear the bit and advance the clock hand. A page with a 0 bit can be selected when encountered.",
+    "id": "memory_unit3_008",
+    "unit": "Unit 3",
+    "number": 8
+  },
+  {
+    "topic": "Copy-on-write",
+    "difficulty": "Advanced",
+    "question_type": "Scenario analysis",
+    "question": "After fork(), parent and child initially map the same physical pages using copy-on-write. The child attempts to write to one shared page. What is the expected OS action?",
+    "options": {
+      "A": "The child always overwrites the parent's page directly",
+      "B": "A protection fault triggers allocation/copying of a private page for the writer, then the write proceeds",
+      "C": "Both processes are immediately terminated",
+      "D": "The entire physical memory is copied unconditionally at fork()"
+    },
+    "answer": "B",
+    "explanation": "Copy-on-write delays copying until a write occurs. The OS creates a private writable copy for the writing process, updates its mapping, and resumes the instruction.",
+    "id": "memory_unit3_009",
+    "unit": "Unit 3",
+    "number": 9
+  },
+  {
+    "topic": "Internal and external fragmentation",
+    "difficulty": "Moderate",
+    "question_type": "Concept application",
+    "question": "A process of 18 KB is allocated one 24 KB fixed partition. Ignoring other overheads, what type and amount of fragmentation occur inside that partition?",
+    "options": {
+      "A": "External fragmentation of 6 KB",
+      "B": "Internal fragmentation of 6 KB",
+      "C": "No fragmentation",
+      "D": "Internal fragmentation of 18 KB"
+    },
+    "answer": "B",
+    "explanation": "The unused space within the allocated fixed partition is 24 − 18 = 6 KB, which is internal fragmentation.",
+    "id": "memory_unit3_010",
+    "unit": "Unit 3",
+    "number": 10
+  },
+  {
+    "topic": "Segmentation",
+    "difficulty": "Advanced",
+    "question_type": "Address validation",
+    "question": "A segment-table entry has base 4000 and limit 600. A logical address is represented as (segment 2, offset 620), and segment 2 has that entry. What happens?",
+    "options": {
+      "A": "Physical address 4620 is valid",
+      "B": "Physical address 4020 is valid",
+      "C": "The offset exceeds the segment limit, so the reference traps",
+      "D": "The segment is automatically enlarged to 620"
+    },
+    "answer": "C",
+    "explanation": "The offset 620 is outside a segment whose limit is 600. The address is invalid; it must not be translated to base + offset.",
+    "id": "memory_unit3_011",
+    "unit": "Unit 3",
+    "number": 11
+  },
+  {
+    "topic": "Swapping and memory-mapped files",
+    "difficulty": "Moderate",
+    "question_type": "Scenario analysis",
+    "question": "A program uses mmap() to map a file into its virtual address space. Which statement is most accurate?",
+    "options": {
+      "A": "The entire file must always be copied into RAM before mmap() returns",
+      "B": "The mapping lets the process access file contents through memory addresses; pages may be brought in on demand",
+      "C": "mmap() converts the file into a CPU register",
+      "D": "A memory-mapped file cannot share physical pages"
+    },
+    "answer": "B",
+    "explanation": "A file mapping establishes a virtual-memory mapping. Actual pages may be populated as they are accessed, subject to mapping type and OS behavior.",
+    "id": "memory_unit3_012",
+    "unit": "Unit 3",
+    "number": 12
+  },
+  {
+    "topic": "Thrashing",
+    "difficulty": "Advanced",
+    "question_type": "Diagnostic reasoning",
+    "question": "CPU utilisation falls while the OS spends most of its time handling page faults and moving pages between RAM and storage. Which response is most likely to help if the processes' working sets exceed available frames?",
+    "options": {
+      "A": "Increase the degree of multiprogramming further",
+      "B": "Reduce the degree of multiprogramming or provide more frames/RAM",
+      "C": "Disable page tables",
+      "D": "Replace demand paging with no address translation"
+    },
+    "answer": "B",
+    "explanation": "This pattern indicates thrashing. Reducing competing memory demand or increasing available frames can let working sets remain resident and reduce page faults.",
+    "id": "memory_unit3_013",
+    "unit": "Unit 3",
+    "number": 13
+  },
+  {
+    "topic": "Frame allocation",
+    "difficulty": "Advanced",
+    "question_type": "Numerical reasoning",
+    "question": "A process has 10 pages in its working set and currently receives only 3 frames. Its recent references repeatedly revisit those 10 pages. Which conclusion is best supported?",
+    "options": {
+      "A": "Three frames guarantee zero page faults",
+      "B": "The allocation may be insufficient to keep the working set resident, causing frequent faults",
+      "C": "The page size becomes 3 pages",
+      "D": "The process cannot have a virtual address space"
+    },
+    "answer": "B",
+    "explanation": "If the active working set is larger than the available frames, pages may repeatedly displace one another, producing frequent page faults. Exact behavior depends on the reference pattern and replacement policy.",
+    "id": "memory_unit3_014",
+    "unit": "Unit 3",
+    "number": 14
+  },
+  {
+    "topic": "NUMA and memory locality",
+    "difficulty": "Moderate",
+    "question_type": "Performance analysis",
+    "question": "On a NUMA system, a thread running on one CPU socket repeatedly accesses memory physically attached to another socket. What is the likely performance effect?",
+    "options": {
+      "A": "Remote memory access may have higher latency than local memory access",
+      "B": "The remote memory automatically becomes a CPU register",
+      "C": "NUMA guarantees identical latency for all memory locations",
+      "D": "The process loses its virtual address space"
+    },
+    "answer": "A",
+    "explanation": "NUMA systems have non-uniform memory access costs. Accessing memory attached to another node can be slower, so placement and locality can affect performance.",
+    "id": "memory_unit3_015",
+    "unit": "Unit 3",
+    "number": 15
+  }
+]
